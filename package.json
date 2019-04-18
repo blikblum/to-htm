@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@babel/core": "^7.4.3",
+    "babel-plugin-transform-jsx-to-htm": "^1.0.0",
+    "handlebars-to-jsx": "^0.0.7"
+  }
+}
