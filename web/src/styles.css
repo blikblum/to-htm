@@ -25,3 +25,7 @@ code-editor .editor {
 .transform-error {
   background-color: yellow;
 }
+
+.source-type-selector {
+  padding-left: 10px;
+}

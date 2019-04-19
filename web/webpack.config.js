@@ -31,7 +31,8 @@ if (isProd) {
   plugins.push(new WebpackPluginServe({
     host: 'localhost',
     port: '8081',
-    static: path.resolve(__dirname, DIST_DIR)
+    static: path.resolve(__dirname, DIST_DIR),
+    liveReload: true
   }))
 }
 
@@ -55,6 +56,9 @@ module.exports = {
   devtool: isProd ? prodDevTool : devDevTool,
   watch: !isProd,
   resolve: {
-    mainFields: ['main']
-  }
+    mainFields: ['browser', 'main'],
+    alias: {
+			fs: path.join(__dirname, './fake-fs.js')
+		}
+  },  
 }
