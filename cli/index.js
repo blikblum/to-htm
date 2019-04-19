@@ -6,7 +6,7 @@ const path = require('path')
 
 function getSourceType(file) {
   switch (path.extname(file)) {
-    case 'handlebars', 'hbs':
+    case '.handlebars', '.hbs':
       return 'handlebars'        
     default:
       return 'jsx';
@@ -23,7 +23,7 @@ if (!filesPattern) {
 const fileSet = new FileSet(filesPattern)
 fileSet.files.forEach(file => {
   console.log('processing ', file)
-  const input = fs.readFileSync(file)
+  const input = fs.readFileSync(file, {encoding: 'utf8'})
   const sourceType = getSourceType(file)
   const output = htmTransform(input, {sourceType})
   const outputFile = sourceType === 'handlebars' ? `${file}.js` : file
