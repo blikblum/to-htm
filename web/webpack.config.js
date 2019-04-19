@@ -49,13 +49,6 @@ module.exports = {
         isProd ? MiniCSSExtractPlugin.loader : 'style-loader',
         'css-loader'
       ]
-    }, {
-      test: /\.(sass|scss)$/,
-      use: [
-        isProd ? MiniCSSExtractPlugin.loader : 'style-loader',
-        'css-loader',
-        'sass-loader'
-      ]
     }]
   },  
   plugins: plugins,
