@@ -1,9 +1,12 @@
 {
+  "name": "to-htm",
+  "version": "0.1.0",
   "dependencies": {
     "@babel/core": "^7.4.3",
     "@babel/standalone": "^7.4.3",
     "ace-builds": "^1.4.3",
     "babel-plugin-transform-jsx-to-htm": "^1.0.0",
+    "file-set": "^2.0.1",
     "handlebars-to-jsx": "^0.0.7",
     "lit-element": "^2.1.0",
     "underscore": "^1.9.1"
@@ -19,5 +22,6 @@
   },
   "scripts": {
     "dev": "wp --config web/webpack.config.js --mode development"
-  }
+  },
+  "bin": "./cli/index.js"
 }

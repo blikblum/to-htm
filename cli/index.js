@@ -1,5 +1,31 @@
+#!/usr/bin/env node
 const { htmTransform } = require('./htmTransform')
+const FileSet = require('file-set')
+const fs = require('fs')
+const path = require('path')
 
-console.log(htmTransform('<div>{{variable}}</div>', {srcType: 'handlebars'}))
+function getSourceType(file) {
+  switch (path.extname(file)) {
+    case 'handlebars', 'hbs':
+      return 'handlebars'        
+    default:
+      return 'jsx';
+  }
+}
 
-console.log(htmTransform('<div>{{variable}}</div>', {srcType: 'handlebars', isComponent: true}))
+const filesPattern = process.argv[2]
+
+if (!filesPattern) {
+  console.warn('to-htm: no files pattern set')
+  process.exit(1)
+}
+
+const fileSet = new FileSet(filesPattern)
+fileSet.files.forEach(file => {
+  console.log('processing ', file)
+  const input = fs.readFileSync(file)
+  const sourceType = getSourceType(file)
+  const output = htmTransform(input, {sourceType})
+  const outputFile = sourceType === 'handlebars' ? `${file}.js` : file
+  fs.writeFileSync(outputFile, output)
+})
