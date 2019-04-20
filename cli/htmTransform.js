@@ -4,14 +4,21 @@ const jsxToHtmBabelPlugin = require('../babel-plugin-transform-jsx-to-htm')
 
 const htmTransform = (src, options = {}) => {
   const {sourceType = 'jsx', ...hbsToJSXOptions} = options
+  let result
 
-  const jsx = sourceType === 'handlebars' ? hbsToJSX(src, hbsToJSXOptions) : src
+  try {
+    const jsx = sourceType === 'handlebars' ? hbsToJSX(src, hbsToJSXOptions) : src
 
-  const { code } = babel.transform(jsx, {
-    plugins: [jsxToHtmBabelPlugin]
-  })
+    result = babel.transform(jsx, {
+      plugins: [jsxToHtmBabelPlugin]
+    }).code
+    
+  } catch (error) {
+    console.error('  Error: ', error.message || error)
+    return false
+  }  
 
-  return code  
+  return result  
 }
 
 module.exports = {

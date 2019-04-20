@@ -26,6 +26,8 @@ fileSet.files.forEach(file => {
   const input = fs.readFileSync(file, {encoding: 'utf8'})
   const sourceType = getSourceType(file)
   const output = htmTransform(input, {sourceType})
-  const outputFile = sourceType === 'handlebars' ? `${file}.js` : file
-  fs.writeFileSync(outputFile, output)
+  if (output !== false) {
+    const outputFile = sourceType === 'handlebars' ? `${file}.js` : file
+    fs.writeFileSync(outputFile, output)
+  }  
 })
