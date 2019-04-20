@@ -1,6 +1,6 @@
 import { compile as hbsToJSX } from 'handlebars-to-jsx'
 import { transform, registerPlugin } from '@babel/standalone'
-import jsxToHtmBabelPlugin from 'babel-plugin-transform-jsx-to-htm'
+import jsxToHtmBabelPlugin from '../../babel-plugin-transform-jsx-to-htm'
 
 registerPlugin('jsx-to-htm', jsxToHtmBabelPlugin)
 
