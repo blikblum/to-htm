@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const { WebpackPluginServe } = require('webpack-plugin-serve')
+var CleanPlugin = require('clean-webpack-plugin')
 const argv = require('webpack-nano/argv')
 
 const DIST_DIR = 'dist'
