@@ -23,5 +23,8 @@
   "scripts": {
     "dev": "wp --config web/webpack.config.js --mode development"
   },
-  "bin": "./cli/index.js"
+  "bin": "./cli/index.js",
+  "files": [
+    "cli/*.js"
+  ]
 }
