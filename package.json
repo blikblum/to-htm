@@ -1,6 +1,19 @@
 {
   "name": "to-htm",
   "version": "0.1.0",
+  "description": "Conversion tool from Handlebars or JSX to htm",
+  "keywords": [
+    "htm",
+    "jsx",
+    "handlebars",
+    "lit-html"
+  ],
+  "url": "https://github.com/blikblum/to-htm",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blikblum/to-htm.git"
+  },
+  "author": "Luiz Américo Pereira Câmara",
   "dependencies": {
     "@babel/core": "^7.4.3",
     "@babel/standalone": "^7.4.3",
