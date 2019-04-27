@@ -26,6 +26,10 @@ code-editor .editor {
   background-color: yellow;
 }
 
-.source-type-selector {
-  padding-left: 10px;
+.code-options-bar {
+  padding-left: 34px;
+}
+
+input:disabled+label {
+  color: darkgrey;
 }
