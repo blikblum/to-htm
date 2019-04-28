@@ -1,6 +1,7 @@
 const { compile: hbsToJSX } = require('../handlebars-to-jsx')
 const babel = require('@babel/core')
 const jsxToHtmBabelPlugin = require('../babel-plugin-transform-jsx-to-htm')
+const prettier = require('prettier')
 
 const htmTransform = (src, options = {}) => {
   const {sourceType = 'jsx', ...hbsToJSXOptions} = options
@@ -18,7 +19,7 @@ const htmTransform = (src, options = {}) => {
     return false
   }  
 
-  return result  
+  return prettier.format(result, {parser: 'babel'})
 }
 
 module.exports = {
