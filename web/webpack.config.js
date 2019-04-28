@@ -33,7 +33,8 @@ if (isProd) {
     host: 'localhost',
     port: '8081',
     static: path.resolve(__dirname, DIST_DIR),
-    liveReload: true
+    liveReload: true,
+    hmr: false
   }))
 }
 

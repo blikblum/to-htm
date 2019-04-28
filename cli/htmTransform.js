@@ -1,4 +1,4 @@
-const { compile: hbsToJSX } = require('handlebars-to-jsx')
+const { compile: hbsToJSX } = require('../handlebars-to-jsx')
 const babel = require('@babel/core')
 const jsxToHtmBabelPlugin = require('../babel-plugin-transform-jsx-to-htm')
 

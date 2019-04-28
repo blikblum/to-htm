@@ -1,4 +1,4 @@
-import { compile as hbsToJSX } from 'handlebars-to-jsx'
+import { compile as hbsToJSX } from '../../handlebars-to-jsx'
 import { transform, registerPlugin } from '@babel/standalone'
 import prettier from 'prettier/standalone'
 import prettierBabel from 'prettier/parser-babylon'
