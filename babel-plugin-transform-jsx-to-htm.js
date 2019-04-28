@@ -1,4 +1,4 @@
-import jsx from '@babel/plugin-syntax-jsx';
+const jsx = require('@babel/plugin-syntax-jsx').default;
 
 /**
  * @param {Babel} babel
@@ -6,7 +6,7 @@ import jsx from '@babel/plugin-syntax-jsx';
  * @param {string} [options.tag='html']  The tagged template "tag" function name to produce.
  * @param {string | boolean | object} [options.import=false]  Import the tag automatically
  */
-export default function jsxToHtmBabelPlugin({ types: t }, options = {}) {
+module.exports = function jsxToHtmBabelPlugin({ types: t }, options = {}) {
 	const tagString = options.tag || 'html';
 	const tag = dottedIdentifier(tagString);
 	const importDeclaration = tagImport(options.import || false);
