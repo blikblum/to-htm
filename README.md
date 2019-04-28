@@ -1,17 +1,17 @@
 # to-htm
 Conversion tool from JSX or Handlebars to [htm](https://github.com/developit/htm) (tagged template literal)
 
-## Web app
+### Web app
 
 See live version [here](https://blikblum.github.io/to-htm/web/dist/)
 
-## CLI
+### CLI
 
-### Install
+#### Install
 
      npm install -g to-htm
 
-### Usage
+#### Usage
 
     to-htm <file-pattern>
 
@@ -19,11 +19,15 @@ Where file-pattern is a glob. Example:
      
     to-htm **/*.hbs
 
-## Todo
+### Todo
+ - Rename className to class, htmlFor to for etc
 
- - Format code with prettier
 
-## Copyright
+### Credits
+ - [htm](https://github.com/developit/htm)
+ - [handlebars-to-jsx](https://github.com/danakt/handlebars-to-jsx)
+
+### Copyright
 2019 - Luiz Américo Pereira Câmara
 
 MIT License
