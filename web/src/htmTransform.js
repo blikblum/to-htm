@@ -13,12 +13,12 @@ export const htmTransform = (src, options = {}) => {
   const jsx = sourceType === 'handlebars' ? hbsToJSX(src, hbsToJSXOptions) : src
 
   if (toJSX) {
-    return prettier.format(jsx, {parser: 'babylon', plugins: [prettierBabel]})
+    return prettier.format(jsx, {parser: 'babel', plugins: [prettierBabel]})
   }
 
   const { code } = transform(jsx, {
     plugins: ['jsx-to-htm']
   })
 
-  return prettier.format(code, {parser: 'babylon', plugins: [prettierBabel, prettierHtml]})
+  return prettier.format(code, {parser: 'babel', plugins: [prettierBabel, prettierHtml]})
 }
