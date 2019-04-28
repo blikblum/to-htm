@@ -17,13 +17,16 @@ class MainView extends Component {
       outputCode: {type: String},
       transformError: {type: Object},
       sourceType: {type: String},
-      toJSX: {type: Boolean}
+      toJSX: {type: Boolean},
+      reactAttributes: {type: Boolean}
     }
   }
 
   constructor() {
     super()
     this.sourceType = 'jsx'
+    this.toJSX = false
+    this.reactAttributes = false
   }
 
   firstUpdated() {
@@ -37,8 +40,13 @@ class MainView extends Component {
   }
   
   toJSXChange(e) {    
-      this.toJSX = e.target.checked
-      this.transformCode(this.inputCodeEditor.content)
+    this.toJSX = e.target.checked
+    this.transformCode(this.inputCodeEditor.content)
+  }
+
+  reactAttributesChange(e) {
+    this.reactAttributes = e.target.checked
+    this.transformCode(this.inputCodeEditor.content)
   }
     
   sourceTypeChange(e) {
@@ -53,7 +61,7 @@ class MainView extends Component {
 
   transformCode(content) {
     try {
-      this.outputCode = htmTransform(content, { sourceType: this.sourceType, toJSX: this.toJSX });
+      this.outputCode = htmTransform(content, { sourceType: this.sourceType, toJSX: this.toJSX, reactAttributes: this.reactAttributes });
       this.transformError = null;
     }
     catch (error) {
@@ -76,6 +84,7 @@ class MainView extends Component {
         <div class="right-pane">
           <div class="code-options-bar">
             <input type="checkbox" id="to-jsx" name="to-jsx" .checked=${this.toJSX} @change=${this.toJSXChange} ?disabled=${this.sourceType === 'jsx'}><label for="to-jsx">To JSX</label>
+            <input type="checkbox" id="react-attrs" name="react-attrs" .checked=${this.reactAttributes} @change=${this.reactAttributesChange}><label for="react-attrs">React Attributes</label>
           </div>          
           <code-editor .content=${this.outputCode}></code-editor>
         </div>                
