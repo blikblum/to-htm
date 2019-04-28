@@ -22,6 +22,7 @@
     "file-set": "^2.0.1",
     "handlebars-to-jsx": "^0.0.7",
     "lit-element": "^2.1.0",
+    "prettier": "^1.17.0",
     "underscore": "^1.9.1"
   },
   "devDependencies": {
